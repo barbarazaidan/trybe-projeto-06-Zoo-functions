@@ -1,8 +1,8 @@
 const data = require('../data/zoo_data');
-// console.log(data.prices); - retorna um grande objeto
+// console.log(data); - retorna um grande objeto
 
 // filter e find
-const especies = data.species;
+const especies = data.species; // retorna um array de objetos
 
 function getSpeciesByIds(...ids) {
   console.log(ids);
