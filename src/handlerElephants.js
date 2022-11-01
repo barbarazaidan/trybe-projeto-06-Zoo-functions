@@ -48,7 +48,7 @@ const computeData = (param, elephants) => {
 };
 
 // ---------------------------------------------------------------------------
-// Na função abaixo, o param representa uma string, que tem relação com as chaves do objeto retornado na função getElephants(). Sendo assim, o param pode ser: 'id', 'name', 'popularity',  'location', 'availability', 'residents'. Se o param informado for igual a alguma das chaves do objeto etornado na função getElephants(), o resultado da função handlerElephants() será o valor correspondente à chave. Se o param não corresponder a nenhuma chave, ele vai chamar a função computeData().
+// Na função abaixo, o param representa uma string, que tem relação com as chaves do objeto retornado na função getElephants(). Sendo assim, o param pode ser: 'id', 'names', 'popularity',  'location', 'availability', 'residents'. Se o param informado for igual a alguma das chaves do objeto etornado na função getElephants(), o resultado da função handlerElephants() será o valor correspondente à chave. Se o param não corresponder a nenhuma chave, ele vai chamar a função computeData().
 
 const handlerElephants = (param) => {
   if (param === undefined) {
@@ -64,6 +64,6 @@ const handlerElephants = (param) => {
   return computeData(param, elephants);
 };
 
-console.log(handlerElephants('availability'));
+console.log(handlerElephants(''));
 
 module.exports = handlerElephants;
