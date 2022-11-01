@@ -18,10 +18,11 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants('location')).toMatch('NW');
   });
   it('Se o argumento passado não for uma string, a função deve retornar a mensagem: Parâmetro inválido, é necessário uma string', () => {
-    expect(handlerElephants(true)).toMatch('Parâmetro inválido, é necessário uma string');
     expect(handlerElephants(5)).toMatch('Parâmetro inválido, é necessário uma string');
-    expect(handlerElephants([])).toMatch('Parâmetro inválido, é necessário uma string');
     expect(handlerElephants({})).toMatch('Parâmetro inválido, é necessário uma string');
+  });
+  it('Se o argumento passado for uma string vazia, a função deve retornar null', () => {
+    expect(handlerElephants('')).toBeNull();
   });
   it('Para o argumento -availability-, a função deve retornar um array de dias da semana que não contém Monday', () => {
     expect(handlerElephants('availability')).toEqual(['Friday', 'Saturday', 'Sunday', 'Tuesday']);
@@ -31,11 +32,11 @@ describe('Testes da função HandlerElephants', () => {
   });
   it('Para o argumento -residents-, a função deve retornar um array de objetos contendo todos os animais da espécie', () => {
     const residentes = [
-          { name: 'Ilana', sex: 'female', age: 11 },
-          { name: 'Orval', sex: 'male', age: 15 },
-          { name: 'Bea', sex: 'female', age: 12 },
-          { name: 'Jefferson', sex: 'male', age: 4 }
-        ]
+      { name: 'Ilana', sex: 'female', age: 11 },
+      { name: 'Orval', sex: 'male', age: 15 },
+      { name: 'Bea', sex: 'female', age: 12 },
+      { name: 'Jefferson', sex: 'male', age: 4 },
+    ];
     expect(handlerElephants('residents')).toEqual(residentes);
   });
   it('Para o argumento -id-, a função deve retornar uma string igual bb2a76d8-5fe3-4d03-84b7-dba9cfc048b5', () => {
