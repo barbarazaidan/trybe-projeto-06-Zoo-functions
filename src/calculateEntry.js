@@ -66,6 +66,6 @@ function calculateEntry(entrants) {
 }
 
 // console.log(countEntrants([{ name: 'ana', age: 18 }]));
-console.log(calculateEntry([{ name: 'ana', age: 18 }]));
+// console.log(calculateEntry([{ name: 'ana', age: 18 }]));
 
 module.exports = { calculateEntry, countEntrants };
