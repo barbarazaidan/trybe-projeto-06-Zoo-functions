@@ -6,13 +6,16 @@ const dayError = 'The day must be valid. Example: Monday';
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // A função abaixo vai validar a hora e os minutos, que foram desestruturados na função validateHour(), analisando se eles representam um número. Afinal, tudo foi passado como string no parâmetro original da função getOpeningHours().
+// A expressão /^\d+$/ verifica se na string há apenas caracteres numéricos (\d+) [o \d+ pega valores de dezenas, centenas etc. ao invés dos números individualmente], do início (^) ao final ($) da string. Caso a expressão dê false, indicada pela !, aparece o error The ${what} should represent a number.
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const isStringRepresentNumber = (string, what) => {
   if (!/^\d+$/.test(string)) {
     throw new Error(`The ${what} should represent a number`);
   }
 };
-
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//  A função abaixo vai validar o AM e PM que foram desestruturados na função validateHour().
 const validateAbbreviation = (abbreviation) => {
   if (!['AM', 'PM'].includes(abbreviation)) {
     throw new Error('The abbreviation must be \'AM\' or \'PM\'');
@@ -24,6 +27,8 @@ const validateAbbreviation = (abbreviation) => {
 // A constante [number, abbreviation] apenas desestruturou o array.
 // A constante [dataHours, dataMinutes] pegou o elemento number da desestruturação anterior e fez uma nova desestruturação, agora no array originado pelo split, que é este aqui: [ '08', '42' ].
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// No switch case abaixo, ele não selecionou uma variável para comparar e sim o próprio valor booleano. Neste caso, o false. Sendo assim, se o primeiro case der falso, ele entra no erro, o mesmo vale para o segundo caso.
+// O Number() usado dentro do case é um método que transforma strings ou outros valores em números. Portanto, Number('08'), que representa Number(dataHours), resulta em 08.
 
 const validateHour = (hour) => {
   const [number, abbreviation] = hour.toUpperCase().split('-');
@@ -56,13 +61,21 @@ const validateDay = (day) => {
 const empty = (one, two) => !one && !two;
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+// A função fix12 recebe três número como parâmetros, que podem variar de 0 até 12. O objetivo aqui é retornar um objeto com as chaves h, o, c. Em cada chave há uma condicional, caso qualquer um desses valores seja igual a 12, ele deve ser modificado para 0. Do contrário, mantem-se o valor informado.
 const fix12 = (hour, open, close) => ({
   h: (hour === 12) ? 0 : hour,
   o: (open === 12) ? 0 : open,
   c: (close === 12) ? 0 : close,
 });
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Os parâmetros abaixo correspondem a:
+// period - AM ou PM
+// hour - número entre 0 e 12
+// open - número capturado na const { open, close } = hours[adjustedDay]
+// close - número capturado na const { open, close } = hours[adjustedDay]
+// O retorno da função fix12 é um objeto, por exemplo: {h: 9, o: 8, c: 6}. A partir daí, eu desestruturo esse objeto e uso suas chaves para fazer as comparações.
+// O retorno da função openOrClosed() é um booleano.
 const openOrClosed = (period, hour, open, close) => {
   const { o, c, h } = fix12(hour, open, close);
   return (period === 'AM' && h >= o) || (period === 'PM' && h < c);
@@ -82,6 +95,13 @@ const openOrClosed = (period, hour, open, close) => {
 //   Monday: { open: 0, close: 0 }
 // }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Essa expressão const { open, close } = hours[adjustedDay] vai acessar e desestruturar as chaves que compõem o valor da propriedade que está no objeto hours.
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// O if (empty(close, open)) vai verificar se o close e o open estão vazios. Caso sim, é retornado 'The zoo is closed'.
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// O dataHour.split('-') vai retornar um array, por exemplo [ '8:45', 'PM' ]. A partir daí, a função pegou o último elemento e colocou todo em maiúsculo, para caso ele não estivesse.
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// O dataHour.split(':') vai retornar um array, por exemplo [ '8', '45-PM' ]. a partir daí, a função pega o primeiro elemento e usa o Number() para tranformar em número.
 
 const getOpeningHours = (day, dataHour) => {
   if (empty(day, dataHour)) return hours;
@@ -97,6 +117,6 @@ const getOpeningHours = (day, dataHour) => {
   return message;
 };
 
-console.log(getOpeningHours('Monday', '08:42-AM'));
+// console.log(getOpeningHours('Friday', '10:00-aM'));
 
 module.exports = getOpeningHours;
