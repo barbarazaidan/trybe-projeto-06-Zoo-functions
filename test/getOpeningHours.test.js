@@ -26,18 +26,33 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours('Tuesday', '09:00-AM')).toMatch('The zoo is open');
   });
 
-  // it('Passando como rgumentos Thu e 09:00-AM, a função deve lançar uma exceção com a mensagem: The day must be valid. Example: Monday', () => {
-  //   expect(getOpeningHours('Thu', '09:00-AM')).toThrow(new Error('The day must be valid. Example: Monday'));
-  // });
+  // --------------------------------------------------------OBSERVAÇÃO-------------------------------------------------------------------------------------------------------
+  // Para capturar o erro da função, eu não posso usar o o expect diretamente, por exemplo: expect(getOpeningHours('Thu', '09:00-AM')).toThrow(). Afinal, a função vai falhar e não conseguirei fazer a análise do erro. Quando ela está dentro de outra função, o erro vai ocorrer na arrow function e aí sim ficará armazenado no expect para ser comparado com o toThrow.
+  // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  // it('Passando argumentos Friday e 09:00-ZM, a função deve lançar uma exceção com a mensagem: The abbreviation must be \'AM\' or \'PM', () => {
-  //   expect(getOpeningHours('Friday', '09:00-ZM')).toThrow(new Error(/^The abbreviation must be \'AM\' or \'PM'$/));
-  // });
+  it('Passando como rgumentos Thu e 09:00-AM, a função deve lançar uma exceção com a mensagem: The day must be valid. Example: Monday', () => {
+    expect(() => getOpeningHours('Thu', '09:00-AM')).toThrow(new Error('The day must be valid. Example: Monday'));
+  });
+
+  it('Passando como argumentos Sunday e 09:c0-AM, a função deve lançar uma exceção com a mensagem: The minutes should represent a number', () => {
+    expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrow(new Error('The minutes should represent a number'));
+  });
+
+  // --------------------------------------------------------OBSERVAÇÃO-------------------------------------------------------------------------------------------------------
+  // Quando uso toThrow(new Error('The day must be valid. Example: Monday')) preciso colocar a string entre aspas. Quando uso apenas toThrow, posso colocar a string somente entre aspas ou usar a seguinte formatação /^The abbreviation must be \'AM\' or \'PM'$/.
+  // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  it('Passando argumentos Friday e 09:00-ZM, a função deve lançar uma exceção com a mensagem: The abbreviation must be \'AM\' or \'PM', () => {
+    expect(() => getOpeningHours('Friday', '09:00-ZM')).toThrow(/^The abbreviation must be 'AM' or 'PM'$/);
+  });
+
+  it('Passando como argumentos Saturday e C9:00-AM, a função deve lançar uma exceção com a mensagem: The hour should represent a number', () => {
+    expect(() => getOpeningHours('Saturday', 'C9:00-AM')).toThrow('The hour should represent a number');
+  });
+
+  // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   it('Verifica se a função não faz diferenciação entre maiúsculas e minúsculas', () => {
     expect(getOpeningHours('FRidAY', '10:00-aM')).toMatch('The zoo is open');
-  });
-
-  it('', () => {
   });
 });
