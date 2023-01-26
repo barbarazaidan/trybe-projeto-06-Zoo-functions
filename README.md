@@ -67,8 +67,6 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 > Faça o mapeamento geográfico dos animais de cada espécie e realize filtros de localização, nome em ordem alfabética e sexo.
 
-Requisitos Bônus
-
 15. Obtenha 100% de cobertura de testes na função handlerElephants.
 
 > Implemente os testes da função handlerElephants para obter 100% de cobertura
@@ -81,6 +79,5 @@ Requisitos Bônus
 
 Os arquivos contidos na pasta coverage foram criados pela Trybe.
 
-
-#### Sobre o curso da Trybe
+## Sobre o curso da Trybe
 O programa total de estudo conta com mais de 1.500 horas de aulas presenciais e online,divididas ao longo de 12 meses. O conteúdo aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
