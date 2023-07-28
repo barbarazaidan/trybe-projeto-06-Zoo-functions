@@ -21,6 +21,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **2. Implemente a função getAnimalsOlderThan**
 
 <details><summary>Detalhes</summary>
@@ -30,6 +32,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **3. Implemente a função getEmployeeByName**
 
@@ -41,6 +45,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **4. Implemente a função getRelatedEmployees**
 
 <details><summary>Detalhes</summary>
@@ -50,6 +56,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **5. Implemente a função countAnimals**
 
@@ -61,6 +69,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **6. Obtenha ao menos 80% de cobertura de testes na função handlerElephants**
 
 <details><summary>Detalhes</summary>
@@ -70,6 +80,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **7. Obtenha ao menos 90% de cobertura de testes na função handlerElephants**
 
@@ -81,6 +93,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **8. Implemente a função calculateEntry**
 
 <details><summary>Detalhes</summary>
@@ -90,6 +104,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **9. Implemente a função getSchedule**
 
@@ -101,6 +117,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **10. Implemente a função getOldestFromFirstSpecies**
 
 <details><summary>Detalhes</summary>
@@ -110,6 +128,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **11. Implemente a função getEmployeesCoverage**
 
@@ -121,6 +141,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **12. Obtenha ao menos 85% de cobertura de testes na função getOpeningHours**
 
 <details><summary>Detalhes</summary>
@@ -130,6 +152,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 **13. Obtenha ao menos 95% de cobertura de testes na função getOpeningHours**
 
@@ -141,6 +165,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 </p>
 </details>
 
+---
+
 **14. Implemente a função getAnimalMap**
 
 <details><summary>Detalhes</summary>
@@ -150,6 +176,8 @@ Confira os requisitos exigidos pela Trybe (texto extraído dos readme oficial da
 
 </p>
 </details>
+
+---
 
 REQUISITOS BÔNUS
 
@@ -163,6 +191,8 @@ REQUISITOS BÔNUS
 </p>
 </details>
 
+---
+
 **16. Obtenha ao menos 100% de cobertura de testes na função getOpeningHours**
 
 <details><summary>Detalhes</summary>
@@ -172,6 +202,8 @@ REQUISITOS BÔNUS
 
 </p>
 </details>
+
+---
 
 ## Observações sobre as pastas
 
